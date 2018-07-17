@@ -8,18 +8,44 @@ metadata:
       HTTP/S endpoints
 objects:
 - apiVersion: v1
-  kind: Pod
+  kind: ImageStream
   metadata:
-    name: http-endpoints
+    name: httpendpoints
   spec:
-    containers:
-    - name: http-endpoints
-      image: syndesisqe/httpendpoints:latest
-      imagePullPolicy: IfNotPresent
-      ports:
-        - containerPort: 8080
-          protocol: TCP
-        - containerPort: 8443
+    dockerImageRepository: syndesisqe/httpendpoints
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    labels:
+      app: httpendpoints
+    name: httpendpoints
+  spec:
+    replicas: 1
+    selector:
+      app: httpendpoints
+    template:
+      metadata:
+        labels:
+          app: httpendpoints
+      spec:
+        containers:
+        - name: http-endpoints
+          image: ' '
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 8443
+              name: https
+    triggers:
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - http-endpoints
+        from:
+          kind: ImageStreamTag
+          name: httpendpoints:latest
+#          namespace: ${IMAGE_STREAM_NAMESPACE}
+      type: ImageChange
 - apiVersion: v1
   kind: Service
   metadata:
