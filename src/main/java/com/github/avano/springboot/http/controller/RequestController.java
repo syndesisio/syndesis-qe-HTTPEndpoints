@@ -78,6 +78,7 @@ public class RequestController {
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, path = "/clearEvents")
+	@ResponseBody
 	public void clearEvents() {
 		EventCollector.clearEvents();
 	}

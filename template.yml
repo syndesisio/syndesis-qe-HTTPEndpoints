@@ -44,7 +44,6 @@ objects:
         from:
           kind: ImageStreamTag
           name: httpendpoints:latest
-#          namespace: ${IMAGE_STREAM_NAMESPACE}
       type: ImageChange
 - apiVersion: v1
   kind: Service
@@ -59,7 +58,7 @@ objects:
       protocol: TCP
       targetPort: 8080
     selector:
-      app: http-endpoints
+      deploymentconfig: httpendpoints
 
 - apiVersion: v1
   kind: Service
@@ -74,4 +73,4 @@ objects:
       protocol: TCP
       targetPort: 8443
     selector:
-      app: http-endpoints
+      deploymentconfig: httpendpoints
