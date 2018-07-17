@@ -14,7 +14,7 @@ objects:
   spec:
     containers:
     - name: http-endpoints
-      image: avano/httpendpoints:latest
+      image: syndesisqe/httpendpoints:latest
       imagePullPolicy: IfNotPresent
       ports:
         - containerPort: 8080
