@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: http-endpoints
+  annotations:
+    openshift.io/display-name: "HTTP Endpoints"
+    description: |-
+      HTTP/S endpoints
+objects:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    name: http-endpoints
+  spec:
+    containers:
+    - name: http-endpoints
+      image: syndesisqe/httpendpoints:latest
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8443
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: http-svc
+  spec:
+    ports:
+    - port: 8080
+      name: http-port
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: http-endpoints
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: https-svc
+  spec:
+    ports:
+    - port: 8443
+      name: https-port
+      protocol: TCP
+      targetPort: 8443
+    selector:
+      app: http-endpoints
