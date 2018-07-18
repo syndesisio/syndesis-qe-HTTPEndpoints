@@ -19,6 +19,7 @@ public class TomcatConfiguration implements WebServerFactoryCustomizer<TomcatSer
 		server.addConnectorCustomizers((TomcatConnectorCustomizer) connector -> connector.setAllowTrace(true));
 		final Connector http = new Connector("org.apache.coyote.http11.Http11NioProtocol");
 		http.setPort(8080);
+		http.setAllowTrace(true);
 		server.addAdditionalTomcatConnectors(http);
 	}
 }
