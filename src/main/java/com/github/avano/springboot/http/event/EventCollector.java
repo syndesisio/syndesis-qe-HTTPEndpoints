@@ -5,7 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public final class EventCollector {
 	private static EventCollector ourInstance = new EventCollector();
 	@Getter
