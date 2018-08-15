@@ -16,48 +16,48 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @Slf4j
 public class RequestController {
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET, path = "/")
 	@ResponseBody
 	public String get() {
 		return "get";
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST, path = "/")
 	@ResponseBody
 	public String post(@RequestBody(required = false) String body) {
 		return ResponseUtil.bodyOrDefault(body);
 	}
 
-	@RequestMapping(method = RequestMethod.PUT)
+	@RequestMapping(method = RequestMethod.PUT, path = "/")
 	@ResponseBody
 	public String put(@RequestBody(required = false) String body) {
 		return ResponseUtil.bodyOrDefault(body);
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE)
+	@RequestMapping(method = RequestMethod.DELETE, path = "/")
 	@ResponseBody
 	public String delete(@RequestBody(required = false) String body) {
 		return ResponseUtil.bodyOrDefault(body);
 	}
 
-	@RequestMapping(method = RequestMethod.PATCH)
+	@RequestMapping(method = RequestMethod.PATCH, path = "/")
 	@ResponseBody
 	public String patch(@RequestBody(required = false) String body) {
 		return ResponseUtil.bodyOrDefault(body);
 	}
 
-	@RequestMapping(method = RequestMethod.OPTIONS)
+	@RequestMapping(method = RequestMethod.OPTIONS, path = "/")
 	@ResponseBody
 	public String options() {
 		return "options";
 	}
 
-	@RequestMapping(method = RequestMethod.TRACE)
+	@RequestMapping(method = RequestMethod.TRACE, path = "/")
 	@ResponseBody
 	public void trace() {
 	}
 
-	@RequestMapping(method = RequestMethod.HEAD)
+	@RequestMapping(method = RequestMethod.HEAD, path = "/")
 	@ResponseBody
 	public void head() {
 	}
