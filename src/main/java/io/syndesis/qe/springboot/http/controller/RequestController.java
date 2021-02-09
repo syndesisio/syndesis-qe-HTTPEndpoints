@@ -62,6 +62,12 @@ public class RequestController {
 	public void head() {
 	}
 
+	@RequestMapping(method = RequestMethod.POST, path = "/body")
+	@ResponseBody
+	public void postBody(@RequestBody String body) {
+		EventCollector.recordEvent(body);
+	}
+
 	@RequestMapping(method = RequestMethod.GET, path = "/events")
 	@ResponseBody
 	public Map<Long, String> getEvents() {
