@@ -27,16 +27,16 @@ public class GetJson {
 	@ResponseBody
 	public String getJsonArray() {
 		return "["
-				+ "{\"key1\": \"value1\"},"
-				+ "{\"key2\": \"value2\"},"
-				+ "{\"key3\": \"value3\"},"
-				+ "{\"key4\": \"value4\"},"
-				+ "{\"key5\": \"value5\"},"
-				+ "{\"key6\": \"value6\"},"
-				+ "{\"key7\": \"value7\"},"
-				+ "{\"key8\": \"value8\"},"
-				+ "{\"key9\": \"value9\"},"
-				+ "{\"key10\": \"value10\"}"
+				+ "{\"key\": \"value1\"},"
+				+ "{\"key\": \"value2\"},"
+				+ "{\"key\": \"value3\"},"
+				+ "{\"key\": \"value4\"},"
+				+ "{\"key\": \"value5\"},"
+				+ "{\"key\": \"value6\"},"
+				+ "{\"key\": \"value7\"},"
+				+ "{\"key\": \"value8\"},"
+				+ "{\"key\": \"value9\"},"
+				+ "{\"key\": \"value10\"}"
 				+ "]";
 	}
 }
